@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "I0F1I8NYHFQhRp69XAEjbz+z6gFusUQils96tA+nI/Y=",
+  "Source": "blurd-api",
+  "BasePath": "_content/blurd-api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
