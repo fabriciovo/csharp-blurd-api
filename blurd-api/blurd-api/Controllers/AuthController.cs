@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using blurd_api.DTOs;
+using blurd_api.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Cryptography;
