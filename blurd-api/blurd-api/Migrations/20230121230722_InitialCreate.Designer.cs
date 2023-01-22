@@ -11,7 +11,7 @@ using blurd_api.Data;
 namespace blurdapi.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230121154546_InitialCreate")]
+    [Migration("20230121230722_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />

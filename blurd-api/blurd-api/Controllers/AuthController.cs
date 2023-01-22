@@ -1,4 +1,5 @@
-﻿using blurd_api.DTOs;
+﻿using blurd_api.Data;
+using blurd_api.DTOs;
 using blurd_api.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -7,34 +8,26 @@ using System.Security.Cryptography;
 
 namespace blurd_api.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("[controller]")]
     public class AuthController : ControllerBase
     {
-        public static User user = new User();
+        private readonly IAuthRepository _authRepo;
 
-        [HttpPost("register")]
-        public async Task<ActionResult<User>> Register(UserDto request)
+        public AuthController(IAuthRepository authRepo)
         {
-            CreatePasswordHash(request.Password, out byte[] passwordHash, out byte[] passwordSalt);
-
-            user.Username= request.Username;
-            user.PasswordHash = passwordHash;
-            user.PasswordSalt = passwordSalt;  
-
-            return Ok(user);
+            _authRepo = authRepo;
         }
 
-
-
-        private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt) {
-            using (var hmac = new HMACSHA512())
+        [HttpPost("Register")]
+        public async Task<ActionResult<ServiceResponse<int>>> Register(UserRegisterDto request)
+        {
+            var response = await _authRepo.Register(new User { Username = request.Username }, request.Password);
+            if (!response.Success)
             {
-                passwordSalt = hmac.Key;
-                passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+                return BadRequest(response);
             }
-        
+            return Ok(response);
         }
-
     }
 }

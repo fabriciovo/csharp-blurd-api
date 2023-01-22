@@ -54,7 +54,7 @@
               "target": "Package",
               "version": "[7.0.2, )"
             },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
+            "Microsoft.EntityFrameworkCore.SQLServer": {
               "target": "Package",
               "version": "[7.0.2, )"
             },
@@ -63,6 +63,18 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.2, )"
+            },
+            "Microsoft.Exchange.WebServices": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.Exchange.WebServices.NETStandard": {
+              "target": "Package",
+              "version": "[1.1.3, )"
+            },
+            "Mnt.Microsoft.Exchange.WebServices.Data": {
+              "target": "Package",
+              "version": "[2.2.1.1, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
