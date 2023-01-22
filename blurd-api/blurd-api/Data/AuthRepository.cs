@@ -11,9 +11,28 @@ namespace blurd_api.Data
             _context = context;
         }
 
-        public Task<ServiceResponse<string>> Login(string username, string password)
+        public async Task<ServiceResponse<string>> Login(string username, string password)
         {
-            throw new NotImplementedException();
+            var response = new ServiceResponse<string>();
+            var user = await _context.users.FirstOrDefaultAsync(u => u.Username.ToLower().Equals(username.ToLower()));
+            if(user is null)
+            {
+                response.Success = false;
+                response.Message = "User not found.";
+            }
+            else if(!VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt)) 
+            {
+                response.Success = false;
+                response.Message = "Wrong password";
+
+            }
+            else
+            {
+                response.Data = user.Id.ToString();
+            }
+
+
+            return response;
         }
 
         public async Task<ServiceResponse<int>> Register(User user, string password)
@@ -45,6 +64,14 @@ namespace blurd_api.Data
             return false;
         }
 
+        private bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
+        {
+            using(var hmac = new System.Security.Cryptography.HMACSHA512(passwordSalt))
+            {
+                var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+                return computedHash.SequenceEqual(passwordHash);
+            }
+        }
         private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {
             using(var hmac = new System.Security.Cryptography.HMACSHA512()) {
