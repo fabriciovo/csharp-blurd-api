@@ -1,0 +1,7 @@
+C:\Users\fabri\Github\csharp-blurd-api\blurd-api\blurd-api\obj\Debug\net7.0\blurd-api.csproj.AssemblyReference.cache
+C:\Users\fabri\Github\csharp-blurd-api\blurd-api\blurd-api\obj\Debug\net7.0\blurd-api.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\fabri\Github\csharp-blurd-api\blurd-api\blurd-api\obj\Debug\net7.0\blurd-api.AssemblyInfoInputs.cache
+C:\Users\fabri\Github\csharp-blurd-api\blurd-api\blurd-api\obj\Debug\net7.0\blurd-api.AssemblyInfo.cs
+C:\Users\fabri\Github\csharp-blurd-api\blurd-api\blurd-api\obj\Debug\net7.0\blurd-api.csproj.CoreCompileInputs.cache
+C:\Users\fabri\Github\csharp-blurd-api\blurd-api\blurd-api\obj\Debug\net7.0\blurd-api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\fabri\Github\csharp-blurd-api\blurd-api\blurd-api\obj\Debug\net7.0\blurd-api.MvcApplicationPartsAssemblyInfo.cache
